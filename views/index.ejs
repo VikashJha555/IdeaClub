@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SRM PORTAL</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body style="background-color:#f9f9f9;">
+    <nav class="navbar navbar-default" style="position:absolute; top:0px; width:100%; background-color:rgba(252, 247, 251, 0.0);background-color:grey;">
+      <div class="container-fluid" >
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/" class="navbar-brand "><img src="logo.png" width="144px" height="83px" style=" margin-top: -15px;"></a>
+        </div><br>
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#"><span><%=name%></span></a></li>
+          <li class="engaged"  id="menubar"><a href="/" style="color: white;">Home</a></li>
+          <li id="menubar"><a href="/about" style="color: white;">About</a></li>
+          <li id="menubar"><a href="/portal" style="color: white;">Proposals</a></li>
+          <li id="menubar"><a href="/domains" style="color: white;">Domains</a></li>
+          <li id="menubar"><a href="/resources" style="color: white;">Resources</a></li>
+          <li class="current"><a href="/portal/logout"  style="color: white;"><span class="glyphicon glyphicon-user"></span>Log Out</a></li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+  <div class="container" style="margin-top:100px;">
+	<div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well well-sm">
+          <form class="form-horizontal" action="/portal/fileupload" method="post" enctype="multipart/form-data">
+          <fieldset>
+            <legend class="text-center">PORTAL</legend>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Name</label>
+              <div class="col-md-9">
+                <input id="name" name="name" type="text" placeholder="Your name" class="form-control" value="<%=name%>">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Roll number</label>
+              <div class="col-md-9">
+                <input id="roll" name="roll" type="text" placeholder="Your roll..." class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Year/Semester</label>
+              <div class="col-md-9">
+                <input id="year" name="ysem" type="text" placeholder="Your Semester and Year..." class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Domain</label>
+              <div class="col-md-9">
+                <input id="domain" name="domain" type="text" placeholder="Your domain..." class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Title</label>
+              <div class="col-md-9">
+                <input id="title" name="title" type="text" placeholder="Title of the project..." class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Abstract</label>
+              <div class="col-md-7">
+                <textarea class="form-control" id="abstract" name="abstract" placeholder="Please enter your abstract here..." rows="3"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Description</label>
+              <div class="col-md-9">
+                <textarea class="form-control" id="description" name="descp" placeholder="Please enter your message here..." rows="5"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Upload Files</label>
+              <div class="col-md-9">
+              <input id="file" type="file" name="filetoupload"><br>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-9 control-label" id="ejs"><%=error%></label>
+            </div>
+
+            <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 text-right">
+                <button type="submit" class="btn btn-primary btn-lg" onclick="formCheck()">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  function formCheck()
+  {
+    var n, r, y, d, a, des, f;
+    var response;
+    n=document.getElementById('name').value;
+    r=document.getElementById('roll').value;
+    y=document.getElementById('year').value;
+    d=document.getElementById('domain').value;
+    a=document.getElementById('abstract').value;
+    des=document.getElementById('description').value;
+    f=document.getElementById('file').value;
+
+
+    if(n=="" || r=='' || y=='' || d=='' || a=='' || des=='' || f==''){
+      response = "*Please fill all the inputs.";
+      event.preventDefault();
+    }
+    else {
+      response = "";
+    }
+
+    document.getElementById('ejs').innerHTML = response;
+  }
+</script>
+
+  </body>
+</html>

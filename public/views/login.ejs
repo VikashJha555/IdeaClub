@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Portal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body style="background-color:#f9f9f9;">
+    <nav class="navbar navbar-default" style="position:absolute; top:0px; width:100%; background-color:grey;">
+      <div class="container-fluid" >
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/" class="navbar-brand "><img src="logo.png" width="144px" height="83px" style=" margin-top: -15px;"></a>
+        </div><br>
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="engaged"  id="menubar"><a href="/" style="color: white;">Home</a></li>
+          <li id="menubar"><a href="/about" style="color: white;">About</a></li>
+          <li id="menubar"><a href="/portal" style="color: white;">Proposals</a></li>
+          <li id="menubar"><a href="/domains" style="color: white;">Domains</a></li>
+          <li id="menubar"><a href="/resources" style="color: white;">Resources</a></li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+<br><br><br><br><br>
+  <div class="container">
+	<div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="well well-sm">
+          <form class="form-horizontal" action="/auth/google" method="get">
+          <fieldset>
+            <legend class="text-center">Log In using Google</legend>
+            <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-danger btn-block">Google+</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+	</div>
+</div>
+
+
+  </body>
+</html>
